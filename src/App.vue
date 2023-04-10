@@ -1,15 +1,21 @@
 <template>
-  <div class="common-layout">
-    <el-container>
-      <el-header>Header</el-header>
+  <template v-if="$route.path === '/login'">
+    <router-view></router-view>
+  </template>
+  <template v-else>
+    <div class="common-layout">
       <el-container>
-        <el-aside width="200px">
-          <AsideMenus></AsideMenus>
-        </el-aside>
-        <router-view></router-view>
-      </el-container>
-    </el-container>
-  </div>
+        <el-header>东雪莲人民医院住院管理系统</el-header>
+        <el-container>
+          <el-aside width="200px">
+            <AsideMenus></AsideMenus>
+          </el-aside>
+          <div class="router-view">
+            <router-view class="pages"></router-view>
+          </div>
+        </el-container>
+      </el-container></div
+  ></template>
 </template>
 
 <script>
@@ -26,16 +32,16 @@ export default {
 .common-layout {
   height: 100%;
 }
-.el-header,
-.el-footer {
-  background-color: #b3c0d1;
-  color: #333;
+.el-header {
+  background-color: #00a5df;
+  color: #ffffff;
+  font-size: 28px;
   text-align: center;
   line-height: 60px;
 }
 
 .el-aside {
-  background-color: #d1edc4;
+  background-color: #ffffff;
   color: #333;
   text-align: center;
   line-height: 200px;
@@ -60,5 +66,14 @@ export default {
 
 .el-container:nth-child(7) .el-aside {
   line-height: 320px;
+}
+
+.router-view {
+  width: 100%;
+  background: #f4f4f5;
+}
+
+.pages {
+  padding: 10px 10px;
 }
 </style>

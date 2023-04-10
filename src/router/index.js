@@ -15,7 +15,33 @@ const routes = [
   {
     path: '/home',
     name: 'home',
-    component: () => import('@/components/Home.vue')
+    component: () => import('@/pages/Home.vue'),
+    children: []
+  },
+  {
+    path: '/patientInfo',
+    name: 'patientInfo',
+    component: () => import('@/pages/PatientInfo.vue')
+  },
+  {
+    path: '/medicineInfo',
+    name: 'medicineInfo',
+    component: () => import('@/pages/medicineInfo.vue')
+  },
+  {
+    path: '/checkInfo',
+    name: 'checkInfo',
+    component: () => import('@/pages/Check.vue')
+  },
+  {
+    path: '/dischargeInfo',
+    name: 'dischargeInfo',
+    component: () => import('@/pages/Discharge.vue')
+  },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('@/components/Login.vue')
   }
 ]
 

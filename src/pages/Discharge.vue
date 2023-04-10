@@ -1,13 +1,9 @@
 <template>
-  <div>11</div>
+  <div>123124214</div>
 </template>
 
 <script>
-export default {
-  setup() {
-    return {}
-  }
-}
+export default {}
 </script>
 
 <style lang="less" scoped></style>
