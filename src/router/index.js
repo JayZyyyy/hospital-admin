@@ -1,4 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+import { ElMessage } from 'element-plus'
 
 const routes = [
   {
@@ -8,7 +9,7 @@ const routes = [
     name: '',
     // ↓路由渲染组件
     redirect: {
-      name: 'home'
+      name: 'login'
     }
     // ↓首页
   },
@@ -48,6 +49,23 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.path == '/login') {
+    // 登录或者注册才可以往下进行
+    next()
+  } else {
+    // 获取 sessionStorage
+    const token = sessionStorage.getItem('login-status')
+    // token 不存在
+    if (token === null || token === '') {
+      ElMessage.error('您还没有登录，请先登录')
+      next('/login')
+    } else {
+      next()
+    }
+  }
 })
 
 export default router
